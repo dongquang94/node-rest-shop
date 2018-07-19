@@ -10,6 +10,7 @@ router.get('/', (req, res, next) => {
     Order
         .find()
         .select('product quantity _id')
+        .populate('product', 'name')
         .exec()
         .then(docs => {
             res.status(200).json({
@@ -72,8 +73,9 @@ router.post('/', (req, res, next) => {
         });
 });
 
-router.get('/:OrderId', (req, res, next) => {
+router.get('/:orderId', (req, res, next) => {
     Order.findById(req.params.orderId)
+        .populate('product')
         .exec()
         .then(order => {
             if(!order) {
@@ -96,7 +98,7 @@ router.get('/:OrderId', (req, res, next) => {
         });
 });
 
-router.delete('/:OrderId', (req, res, next) => {
+router.delete('/:orderId', (req, res, next) => {
     const id = req.params.orderId;
     Order.findOneAndRemove({
         _id : id

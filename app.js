@@ -11,6 +11,7 @@ mongoose.connect("mongodb+srv://dvquang:9MjYShWBQa4hb2Ty@node-rest-shop-9mnvp.mo
 mongoose.Promise = global.Promise;
 
 app.use(morgan('dev'));
+app.use('/uploads', express.static('uploads'));
 app.use(bodyParser.urlencoded({extended : false}));
 app.use(bodyParser.json())
 
