@@ -1,7 +1,0 @@
-{
-    "env": {
-        "MONGO_ATLAS_USER"  : "dvquang",
-        "MONGO_ATLAS_PW"    : "9MjYShWBQa4hb2Ty",
-        "port" : 3000
-    }
-}
